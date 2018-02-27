@@ -4,4 +4,7 @@ Thumbs.db
 */node_modules/*
 bundle.js
 .idea
+<<<<<<< HEAD
+.package-lock.json
+=======
 .package-lock.json
