@@ -7,9 +7,9 @@ function replaceNumbers($array){
             $array[$i + 1] += ($array[$i] - $array[$i + 1] + 1);
         }   
     }
-    print $steps;
+    return $steps;
 }
 $array = [1, 1, 1]; //3
 $array = [-1000, 0, -2, 0]; //5
-replaceNumbers($array)
+replaceNumbers($array);
 ?>
