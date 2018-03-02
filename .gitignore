@@ -4,5 +4,3 @@ Thumbs.db
 node_modules/
 bundle.js
 .idea
-.package-lock.json
-
