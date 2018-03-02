@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+
+  .popup{
+   display: none;
+   position: absolute;
+   z-index: 1000;
+   margin: 0 25% ;
+   width: 50%;
+   border: 1px solid black;
+   padding: 10px;
+   background-color: white;
+ }
+
+.bgpopup{
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 999;
+   position: fixed;
+   background-color: black;
+    opacity: 0.5;
+  }
+  </style>
+</head>
+<body>
+  <div id ="forSearch">
+  <form action="#" id = "form">
+    <input id = "search" type="text" placeholder="search" required>
+    <input id ="submit" type="submit" value="Отправить">
+  </form>
+</div>
+<hr/>
+
+  <div id ="booksInfo">
+  </div>
+
+  <div class="bgpopup"></div>
+
+  <div  class="popup" >
+    <form action="" id = "buy">
+      <p>Иия:</p>
+      <input type="text" name="name" class= "required" id = "name">
+      <p>Email:</p>
+      <input type="email"  name="email" class= "required email"  id = "email">
+      <p>Телефон</p>
+      <input type="text" name="phone" class= "required phoneUA"  id = "phone">
+      <input type="submit"  name = "submit" value="Отправить">
+    </form>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

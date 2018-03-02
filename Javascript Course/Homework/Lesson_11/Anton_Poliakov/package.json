@@ -1,0 +1,45 @@
+{
+  "name": "Anton_Poliakov",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "jquery-mask-plugin": "^1.14.13",
+    "jquery-validation": "^1.17.0",
+    "popper.js": "^1.12.9",
+    "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "bootstrap": "^4.0.0-alpha.6",
+    "extract-loader": "^1.0.2",
+    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-template": "^6.1.0",
+    "jquery": "^3.3.1",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "node-sass": "^4.7.2",
+    "postcss-loader": "^2.1.0",
+    "sass-loader": "^6.0.6",
+    "sass-webpack-plugin": "^1.0.0",
+    "tether": "^1.4.3",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}

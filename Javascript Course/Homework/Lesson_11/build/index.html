@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Books Search Software</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<body class="#212121 grey darken-4">
+	<div id="form-area">
+		<form id="main_form">
+			<input type="search" id="books">
+			<button class="search-button">Search Books</button>
+		</form>
+	</div>
+	<div id="search-result"></div>
+	
+	<div id="modal_form">
+      <span id="modal_close">x</span>
+      <div id = "click-result"></div>
+      <div class = "order">
+      	<form id = "order-form">
+      		<div><input class = "order-form-enter" type="text" name="name" placeholder = "Ваше имя" id = "order-name" required></div>
+      		<div><input class = "order-form-enter" type="email" name="email" placeholder = "Ваша почта" id = "order-mail" required></div>
+      		<div class = "order-phone-block"><input class = "order-form-enter" type="tel" name="phone" placeholder = "Ваш телефон" id = "order-phone" required></div>
+      		<div><input id = "order-item" type="submit" name="button" disabled></div>
+      	</form>
+      </div>
+	</div>
+	<div id="overlay"></div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="bundle.js"></script>
+</body>
+</head>
+</html>
