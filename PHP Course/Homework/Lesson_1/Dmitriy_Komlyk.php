@@ -5,9 +5,10 @@ function minStep($someArray) {
    foreach($someArray as $key => $value) {
      if($key == 0) { $newArray[] = $value; continue;}
      if(end($newArray) < $value){ $newArray[] = $value; continue;}
-     if(end($newArray) >= $value) {
-         $sumStep += (end($newArray)-$value)+1;
-         $step = $sumStep+$value;
+     if(end($newArray) == $value) { $newArray[] = $value+1; $sumStep+=1; continue;}
+     if(end($newArray) > $value) {
+         $sumStep += (end($newArray)-$value)+1 ;
+         $step = ((end($newArray)-$value)+1)+$value;
          $newArray[] = $step;
      }
    }
