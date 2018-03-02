@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="assets/jquery-3.2.1.min.js"></script>
+    <script src="assets/Datejs-all/build/date.js"></script>
+    <script src="assets/jQuery-Mask-Plugin-master/jquery.mask.js"></script>
+    <script src="assets/jquery-validation-1.16.0/dist/jquery.validate.min.js"></script>
+    <script src="index.js"></script>
+
+
+</head>
+<body>
+
+    <div>
+        <div id="order"></div>
+        <h2 id="form">Book List</h2>
+        <form  method="GET" name="findbook" id="findbook">
+            <p>
+                <label for="search" class="label">Search</label>
+                <input name="findBook" type="text" id="search" placeholder="Find Book">
+            </p>
+
+            <p>
+                <input type="submit" name="submit" id="submit" value="Find">
+            </p>
+        </form>
+    </div>
+
+    <div id="bookList">
+    </div>
+
+    <div id="modal_form">
+        <span id="modal_close">X</span>
+        <div id="description"></div>
+            <form id="registration">
+                <input class="order" type="text" name="name" placeholder="Имя" /><br>
+                <input class="order" type="email" name="email" placeholder="Email"/><br>
+                <input class="order" type="tel" name="tel" id="tel" placeholder="Телефон"/><br>
+                <input type="submit" name="submit" id="sendOrder" value="Отправить"/>
+            </form>
+    </div>
+    <div id="overlay"></div>
+</body>
+</html>

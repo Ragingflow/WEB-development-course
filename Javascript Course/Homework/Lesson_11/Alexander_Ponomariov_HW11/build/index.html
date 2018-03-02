@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Search books</title>
+
+    <script src="./bundle.js"></script>
+    <style>
+        .book-block {
+            border: 1px solid #aaa;
+            margin-bottom: 10px;
+        }
+        .authors {
+            margin-bottom: 10px;
+        }
+        .pub-date {
+            text-decoration: underline;
+        }
+        .buy-pop-up {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+        }
+        .buy-pop-up .pop-up {
+            position: absolute;
+            background: aqua;
+            width: 50%;
+            min-height: 50%;
+            left: 25%;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 20px;
+        }
+        .description {
+            display: none;
+        }
+        .buy-pop-up .book-image {
+            float: left;
+            margin: 0 10px 0 0;
+        }
+        .buy-pop-up label {
+            display: block;
+            margin: 20px 0;
+            clear: both;
+            position:relative;
+        }
+        .buy-pop-up label span {
+            width: 30%;
+            display: inline-block;
+        }
+        .buy-pop-up label input {
+            width: 60%;
+            display: inline-block;
+        }
+        .buy-pop-up .close {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            border: 1px solid #000;
+        }
+        .buy-pop-up .error-message {
+            position: absolute;
+            color: red;
+            top: -15px;
+            left: 33%;
+            font-size: .75em;
+        }
+
+    </style>
+</head>
+<body>
+<form action="post" id="search-form">
+    <label for="search-field">Set title or part of title</label>
+    <input type="text" name="search-field" id="search-field">
+    <input type="submit" value="search">
+</form>
+
+<div id="result"></div>
+
+</body>
+</html>

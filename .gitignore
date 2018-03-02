@@ -1,10 +1,6 @@
 .DS_Store
 Thumbs.db
 .git
-*/node_modules/*
+node_modules/
 bundle.js
 .idea
-<<<<<<< HEAD
-.package-lock.json
-=======
-.package-lock.json

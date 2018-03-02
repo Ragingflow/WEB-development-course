@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <div class="row">
+            <div class="col-12">
+              <div class="jumbotron">
+                <form id="search" class="form-inline">
+                  <div class="form-group mx-sm-2">
+                    <input id="query" class="form-control" type="search" name="q" placeholder="Поиск книг" required>
+                  </div>
+                  <div class="form-group">
+                    <button id="submit" class="btn btn-dark" type="submit" name="button">Искать</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <form id="make-order">
+            <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="order-modal">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 id="order-title" class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" name="button">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div id="order-details" class="modal-body">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button id="send-button" type="submit" class="btn btn-success" disabled>Отправить</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="row">
+            <div class="col-12 px-0">
+              <div id="items" class="card-columns"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <h2>Мои заказы</h2>
+          <div id="cart"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="bundle.js"></script>
+  </body>
+</html>
