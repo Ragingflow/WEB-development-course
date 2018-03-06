@@ -19,8 +19,6 @@ import App from './App.vue'
 
 import Cart from './components/Cart.vue'
 import Dashboard from './components/Dashboard.vue'
-import SignIn from './components/SignIn.vue'
-import SignUp from './components/SignUp.vue'
 
 Vue.use(VueMaterial);
 Vue.use(VueResource);
