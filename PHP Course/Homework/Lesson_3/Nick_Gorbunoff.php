@@ -8,9 +8,9 @@ function findPolindrom($str){
 			$count++;
 	}
 	if ($count > 1) {
-		return true;
-	} else {
 		return false;
+	} else {
+		return true;
 	}
 }
 $string = "ffooeennnmmsskkttnnf";
