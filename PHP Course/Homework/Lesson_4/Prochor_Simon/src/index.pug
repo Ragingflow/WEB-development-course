@@ -1,0 +1,46 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+        link(href='styles.css', rel='stylesheet')
+        title
+    body
+        .header
+            .container
+                .row.justify-content-center
+                    .col-10
+                        .row.justify-content-between
+                            .col-auto
+                                h2
+                                    | HOME WORK PHP&nbsp;
+                                    span.badge.badge-pill.badge-success 4
+
+        .content
+            .container
+                .content__form
+                    .row.justify-content-center
+                        .col-10
+                            form#ticketby
+                                .form-group
+                                    label(for='name1') Password
+                                    input#name1.form-control(type='text', required,name="firstname", placeholder='First Name')
+                                .form-group
+                                    label(for='name2') Password
+                                    input#name2.form-control(type='text', required, name="lastname", placeholder='last name')
+                                .form-group
+                                    label(for='email') Email address
+                                    input#email.form-control(type='email', required, name="email", placeholder='Enter email')
+                                .form-group
+                                    label(for='type') State
+                                    select#type.form-control(name="type", required)
+                                        option(selected='') free
+                                        option standart
+                                        option premium
+
+
+
+                                button.btn.btn-primary(type='submit') By Ticket
+
+
+
