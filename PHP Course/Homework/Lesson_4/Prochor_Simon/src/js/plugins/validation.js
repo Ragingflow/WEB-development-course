@@ -1,11 +1,10 @@
-import * as tingle from 'tingle.js/src/tingle';
 import { Validation, ValidationConfig, ValidationUI } from 'bunnyjs/src/Validation';
 
 ValidationConfig.classInputGroupError = 'is-invalid';
 ValidationConfig.classError = 'invalid-feedback';
 
 ValidationUI.toggleErrorClass = function(inputGroup) {
-    inputGroup.getElementsByTagName('input')[0].classList.toggle(this.config.classInputGroupError);
+	inputGroup.getElementsByTagName('input')[0].classList.toggle(this.config.classInputGroupError);
 };
 
 Validation.init = function(form, inline = false, calback = false) {
@@ -23,11 +22,11 @@ Validation.init = function(form, inline = false, calback = false) {
 				submitBtn.disabled = false;
 			});
 			if (result === true) {
-			    if( calback ) {
-				    calback(e);
-                } else {
-				    form.submit();
-                }
+				if( calback ) {
+					calback(e);
+				} else {
+					form.submit();
+				}
 			} else {
 				this.focusInput(result[0]);
 			}
@@ -39,30 +38,4 @@ Validation.init = function(form, inline = false, calback = false) {
 	}
 };
 
-
-let popup = new tingle.modal({
-    footer: true,
-    stickyFooter: true,
-    closeMethods: ['overlay', 'button', 'escape'],
-    closeLabel: "Close",
-});
-
-
-
-class ByTicketForm {
-    constructor(node) {
-        this.form = node;
-
-        this.action();
-    }
-
-    action () {
-	    Validation.init(this.form, true, function(e){
-	        console.log(e);
-        });
-    }
-
-}
-
-new ByTicketForm( document.getElementById('ticketby') );
-
+export {Validation};

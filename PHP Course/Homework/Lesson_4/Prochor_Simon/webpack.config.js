@@ -14,7 +14,7 @@ var config = {
         port: 3001,
         contentBase: './build'
     },
-    entry: ["babel-polyfill","./src/index.js"],
+    entry: ["babel-polyfill","./src/js/index.js"],
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'bundle.js'
