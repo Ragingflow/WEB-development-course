@@ -1,30 +1,80 @@
-import * as tingle from 'tingle.js/src/tingle';
-import { Validation } from './plugins/validation';
+import $ from 'jquery';
+import 'jquery-validation';
 
-
-let popup = new tingle.modal({
-    footer: true,
-    stickyFooter: true,
-    closeMethods: ['overlay', 'button', 'escape'],
-    closeLabel: "Close",
-});
+console.dir($);
 
 
 
 class ByTicketForm {
-    constructor(node) {
-        this.form = node;
+    constructor( $node) {
+        this.$form = $node;
+        this.validInput = this.$form.find('input[name=validation]');
+        this.validator = '';
+        this.root = '/registration_form.php';
 
         this.action();
     }
 
+
+
     action () {
-	    Validation.init(this.form, true, function(e){
-	        console.log(e);
+        let rules = {
+                firstname: "required",
+                lastname: "required",
+                type: "required",
+                email: {
+                    required: true,
+                    email: true
+                }
+            };
+
+        let params = {
+            errorClass: "is-invalid",
+            errorElement: "div",
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback').insertAfter(element);
+            },
+            submitHandler: (form)=> {
+                let formData  = new FormData( form);
+
+                $.ajax({
+                    url: this.root,
+                    data: formData,
+                    processData: false,  // tell jQuery not to process the data
+                    contentType: false,   // tell jQuery not to set contentType
+                    type: 'POST',
+                    success:  ( json )=> {
+                        if( json.errors) {
+                            this.validator.showErrors(json.errors);
+                        }
+
+                    }
+                });
+            }
+        };
+
+        params.rules = rules;
+        this.validator = this.$form.validate(params);
+
+
+        this.validInput.change((e)=> {
+            this.validator.destroy();
+
+            if (e.target.value == '0') {
+                params.rules = null;
+                this.validator = this.$form.validate(params);
+            }
+            else if (e.target.value == '1') {
+                params.rules = rules;
+                this.validator = this.$form.validate(params);
+            }
         });
+
     }
 
 }
 
-new ByTicketForm( document.getElementById('ticketby') );
+$( document ).ready(function() {
+    new ByTicketForm( $('#ticketby') );
+});
 

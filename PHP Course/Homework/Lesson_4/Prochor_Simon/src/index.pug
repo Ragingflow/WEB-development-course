@@ -22,17 +22,26 @@ html
                     .row.justify-content-center
                         .col-10
                             form#ticketby
+                                .form-group.row
+                                    .col-sm-4.col-form-label Js Validation
+                                    .col-sm-8
+                                            .form-check.form-check-inline
+                                                input#inlineRadio1.form-check-input(type='radio', checked, name='validation', value='1')
+                                                label.form-check-label(for='inlineRadio1') on
+                                            .form-check.form-check-inline
+                                                input#inlineRadio2.form-check-input(type='radio', name='validation', value='0')
+                                                label.form-check-label(for='inlineRadio2') off
                                 .form-group
-                                    label(for='name1') Password
-                                    input#name1.form-control(type='text', required,name="firstname", placeholder='First Name')
+                                    label(for='name1') First Name
+                                    input#name1.form-control(type='text', name="firstname", placeholder='First Name')
                                 .form-group
-                                    label(for='name2') Password
-                                    input#name2.form-control(type='text', required, name="lastname", placeholder='last name')
+                                    label(for='name2') Last name
+                                    input#name2.form-control(type='text', name="lastname", placeholder='Last name')
                                 .form-group
                                     label(for='email') Email address
-                                    input#email.form-control(type='email', required, name="email", placeholder='Enter email')
+                                    input#email.form-control(type='email', name="email", placeholder='Enter email')
                                 .form-group
-                                    label(for='type') State
+                                    label(for='type') Type Ticket
                                     select#type.form-control(name="type", required)
                                         option(selected='') free
                                         option standart
