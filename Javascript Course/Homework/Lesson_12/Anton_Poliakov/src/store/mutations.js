@@ -6,14 +6,12 @@ export const mutations = {
   },
 
   [types.INIT_POPUP](state, index) {
-    state.books.forEach((book, value) => {
-      if (value === index) {
-        state.popup = book;
-      };
-    });
+    state.popup = state.books[index];
   },
 
-  [types.ADD_ORDER](state, index) {
+  [types.ADD_ORDER](state, payload) {
+    state.orders.push(payload);
+  },
+};
 
-  }
-}
+export default mutations;

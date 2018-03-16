@@ -9,7 +9,7 @@ Vue.use(Vuex);
 const state = {
   books: [],
   popup: [],
-  cart: [],
+  orders: [],
 };
 
 export default new Vuex.Store({
