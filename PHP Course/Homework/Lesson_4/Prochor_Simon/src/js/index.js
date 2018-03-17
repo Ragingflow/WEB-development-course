@@ -1,8 +1,6 @@
 import $ from 'jquery';
 import 'jquery-validation';
 
-console.dir($);
-
 
 
 class ByTicketForm {
@@ -44,10 +42,12 @@ class ByTicketForm {
                     contentType: false,   // tell jQuery not to set contentType
                     type: 'POST',
                     success:  ( json )=> {
-                        if( json.errors) {
+                        if( json.errors ) {
                             this.validator.showErrors(json.errors);
                         }
-
+                        if( json.sucsess ) {
+                            this.$form[0].innerHTML = `<h2><span class="badge badge-success">${json.sucsess}</span></h2>`;
+                        }
                     }
                 });
             }

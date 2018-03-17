@@ -2,9 +2,7 @@
 
 class Validator {
     //Default name fields
-    private static $email = 'mail';
-    private static $phone = 'phone';
-    private static $file = 'file';
+    private static $email = 'email';
 
     public static function validate_fields($fields, $errors=array()){
 
@@ -17,9 +15,9 @@ class Validator {
 
         }
         if($fields['required']) {
-            foreach ($fields['required'] as $key => $value) {
-                if( isset($value)  ) {
-                    $errors = self::validate_require($key, $value, $errors);
+            foreach ($fields['required'] as $key) {
+                if( isset($key) && isset($fields['fields'][$key]) ) {
+                    $errors = self::validate_require($key, $fields['fields'][$key], $errors);
                 }
             }
         }
@@ -29,17 +27,17 @@ class Validator {
     }
 
     private static function validate_require($key, $value, $errors){
-            if( !is_array($value) ) {
-                $val = $value;
-            } else {
-                $val = $value['name'];
+        if( !is_array($value) ) {
+            $val = $value;
+        } else {
+            $val = $value['name'];
+        }
+        if( !isset($val) || strlen(trim($val)) === 0 ){
+            if(!isset($errors[$key])) {
+                $errors[$key] = array();
             }
-            if( !isset($val) || strlen(trim($val)) === 0 ){
-                if(!$errors[$key]) {
-                    $errors[$key] = array();
-                }
-                $errors[$key] = 'Обязательное поле';
-            }
+            $errors[$key] = 'is required';
+        }
 
         return $errors;
     }
@@ -57,12 +55,6 @@ class Validator {
             if( $key == self::$email ) {
                 $errors = self::validate_email($key, $value, $errors);
             }
-            if( $key == self::$phone ) {
-                $errors = self::validate_phone($key, $value, $errors);
-            }
-            if( $key == self::$file ) {
-                $errors = self::validate_file($key, $value, $errors);
-            }
         }
 
         return $errors;
@@ -74,98 +66,13 @@ class Validator {
 
         if(!filter_var($value, FILTER_VALIDATE_EMAIL)){
 
-            if(!$errors[$key]) {
-                $errors[$key] = array();
-            }
-            $errors[$key] = 'Неверный формат email';
+            //if(!$errors[$key]) {
+            //    $errors[$key] = array();
+            //}
+            $errors[$key] = 'should be a valid e-mail address';
         }
 
         return $errors;
-    }
-
-    private static function validate_phone($key, $value, $errors){
-
-        preg_match('/[a-zA-Z]]/', $value, $matches);
-
-        if( count($matches) > 0 ) {
-            
-            if(!$errors[$key]) {
-                $errors[$key] = array();
-            }
-            $errors[$key] = 'Неверный формат телефона';
-        }
-
-        // if( !self::validatePhoneNumber( $value ) ) {
-
-        //     if(!$errors[$key]) {
-        //         $errors[$key] = array();
-        //     }
-        //     $errors[$key] = 'Неверный формат телефона';
-        // }
-
-        return $errors;
-    }
-
-    private static function validate_file($key, $value, $errors){
-
-        $allowed_mime_types = array(
-            'image/png',
-            'image/jpeg',
-            'image/jpeg',
-            'image/jpeg',
-            'image/gif',
-            'image/bmp',
-            'application/pdf',
-            'application/zip',
-            'application/gzip',
-            'application/x-zip-compressed',
-            'application/x-rar-compressed'
-        );
-
-        //var_dump($value['type']);
-
-        unset($errors[$key]);
-
-
-        if( !in_array($value['type'], $allowed_mime_types) ){
-            $errors[$key] = 'Неверный тип файла, Попробуйте zip';
-        }
-        if(filesize($value['tmp_name']) > 2097152 ){
-            $errors[$key] = 'Файл более 2 мб';
-        }
-
-        // Check to see if any PHP files are trying to be uploaded
-        $content = file_get_contents($value['tmp_name']);
-
-        if (preg_match('/\<\?php/i', $content)) {
-            $errors[$key] = 'Сломать меня хочешь?';
-        }
-
-        // Return any upload error
-        if ($value['error'] != UPLOAD_ERR_OK) {
-            $errors[$key] = 'Загрузка не удалась';
-        }
-
-        return $errors;
-    }
-
-    //HELP
-    private static function validatePhoneNumber($number) {
-        $formats = array(
-            '###-###-####', '####-###-###',
-            '(###) ###-###', '####-####-####',
-            '##-###-####-####', '####-####', '###-###-###',
-            '#####-###-###', '##########', '#########',
-            '# ### #####', '#-### #####',
-            '# ### ### ## ##', '###########', '############', '## ##########', '## ### ### ## ##', '+# (###) ###-##-##', '+# (###) ### ## ##',
-            '+## (###)-###-##-##',
-            '+## (###) ### ## ##'
-        );
-
-        return in_array(
-            trim(preg_replace('/[0-9]/', '#', $number)),
-            $formats
-        );
     }
 
 
