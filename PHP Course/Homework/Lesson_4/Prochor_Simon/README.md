@@ -9,7 +9,7 @@ The next step
 ```
 npm run build
 ```
-And then create a local server from the folder
+And last step create a local server with support PHP from the folder
 ```
 ./build
 ```
