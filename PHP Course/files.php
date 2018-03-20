@@ -210,8 +210,20 @@ print_r(readdir($dir));
 //print_r(file_get_contents('test.txt'));
 
 
+// Файлы: загрузка на сервер
+print_r($_FILES);
 
-
+if($_FILES['userfile']['error'] == 0){
+    $tmp = $_FILES['userfile']['tmp_name'];
+    $name = $_FILES['userfile']['name'];
+    move_uploaded_file($tmp, __DIR__ . '/uploads/'. $name . '_uploaded');
+}
 
 ?>
 </pre>
+
+<form action="" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="MAX_FILE_SIZE" value="51200">
+    <input type="file" name="userfile">
+    <input type="submit" value="Send">
+</form>
