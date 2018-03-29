@@ -1,0 +1,48 @@
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body {
+  background: #fff;
+}
+
+.header {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.content {
+  &__form {
+    margin-bottom: 20px;
+  }
+
+}
+
+.img-thumbnail {
+  margin-right: 15px;
+}
+
+.progress {
+  margin-bottom: 10px;
+}
+
+.tingle-enabled {
+  left: 0;
+  right: 0;
+}
+
+.card.bg-dark {
+  overflow: hidden;
+  min-height: 280px;
+  .card-img {
+    opacity: 0.2;
+    position: absolute;
+  }
+}
+
+.card-img-overlay {
+  padding: 0;
+}
+
+.card-img-overlay {
+  position: relative;
+}
+
