@@ -4,12 +4,16 @@ define('DATABASE_DIR', 'database/');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST')
 {
-    if (!isCreated($_POST['email'])) {
+    if (isCreated($_POST['email'])) {
+        $data = $_POST;
+        $errors['email'] = 'This email is already taken';
+        return compact($data, $errors);
+    } else {
         store(filterFormData($_POST));
-    }
 
-    header("Location: " . '/');
-    exit;
+        header("Location: " . "/");
+        exit;
+    }
 }
 
 function filterFormData($data)

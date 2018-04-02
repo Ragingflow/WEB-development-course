@@ -24,13 +24,20 @@
         <h1 class="display-4 mb-4">Sign up</h1>
         <form id="register" action="" method="POST" enctype="multipart/form-data">
           <div class="form-group">
-            <input type="text" class="form-control" id="firstname" name="firstname" aria-describedby="nameHelp" placeholder="First name" required>
+            <input type="text" class="form-control" id="firstname" name="firstname" aria-describedby="nameHelp" placeholder="First name"
+                   <?php echo 'value="' . (isset($data['firstname']) ? $data['firstname'] : '') . '"' ?>
+                   required>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" id="lastname" name="secondname" aria-describedby="secondnameHelp" placeholder="Last name" required>
+            <input type="text" class="form-control" id="secondname" name="secondname" aria-describedby="secondnameHelp" placeholder="Last name"
+                <?php echo 'value="' . (isset($data['secondname']) ? $data['secondname'] : '') . '"' ?>
+                   required>
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email" required>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email"
+                <?php echo 'value="' . (isset($data['email']) ? $data['email'] : '') . '"' ?>
+                   required>
+            <?php echo (isset($errors['email']) ? '<div class="error">This email is already registered.</div>' : ''); ?>
           </div>
           <div class="form-group">
             <div class="form-check">
