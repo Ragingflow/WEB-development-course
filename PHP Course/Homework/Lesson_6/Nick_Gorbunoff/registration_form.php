@@ -71,7 +71,7 @@
 
 		$servername = "localhost";
 		$username = "root";
-		$password = "";
+		$password = "root";
 
 		$conn = mysqli_connect($servername, $username, $password);
 

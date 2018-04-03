@@ -2,7 +2,7 @@
 
 $servername = "127.0.0.1";
 $username = "root";
-$password = "";
+$password = "root";
 
 if (!empty($_POST)) {
     $name = trim($_POST['name']);

@@ -55,7 +55,6 @@ class  MyClass  {
 */
 
 
-
 // Конструкторы и деструкторы
 
 // __construct()
@@ -77,7 +76,6 @@ echo $obj->property;
 */
 
 
-
 // Псевдо-константы применимые в OOP __METHOD__ и __CLASS__
 /*
 class MyClass {
@@ -96,7 +94,6 @@ $obj->myMethod();
 $obj->getClassName();
 
 */
-
 
 
 // Новые принципы работы с объектами
@@ -151,7 +148,6 @@ echo $myObj2->property; // 2
 */
 
 
-
 // Наследование
 
 /*
@@ -174,7 +170,6 @@ $myCar = new Toyota();
 $myCar->printWheels();
 $myCar->printCountry();
 */
-
 
 
 //Перегрузка методов
@@ -206,7 +201,7 @@ $myCar->printCountry();
 
 
 // Спецификаторы доступа
-
+/*
 class MyClass {
     public  $public  = 1;
     protected $protected  = 2;
@@ -216,7 +211,7 @@ class MyClass {
         echo $this->protected; //Ok
         echo $this->private; //Ok
     }
-}
+}*/
 
 // $obj = new MyClass();
 //echo $obj->public; //Ok
@@ -236,7 +231,6 @@ class NewClass extends MyClass {
 $obj = new NewClass();
 $obj->newMethod();
 */
-
 
 
 // Обработка исключений
@@ -292,7 +286,6 @@ try {
 */
 
 
-
 // Перебор свойств объекта
 /*
 class Human {
@@ -310,7 +303,6 @@ foreach ($billGates as $name=>$value){
     print($name . ':' . $value . '<br>');
 }
 */
-
 
 
 // Константы класса
@@ -353,7 +345,6 @@ $myMegaCar = new InjectorCar();
 $myMegaCar->startEngine();
 $myMegaCar->stopEngine();
 */
-
 
 
 // Интерфейсы
@@ -447,7 +438,6 @@ SocialLikes::welcome();
 */
 
 
-
 // Ключевое слово instanceof
 /*
 class  Human  {}
@@ -477,7 +467,6 @@ if($billGates  instanceOf  LotsOfMoney)
 // is_a( object $object , string $class_name)
 
 
-
 // Функция __autoload()
 /*
 function __autoload($cl_name){
@@ -487,6 +476,75 @@ function __autoload($cl_name){
 
 $obj = new undefinedClass();
 */
+
+
+// Методы доступа к свойствам объекта
+/*
+class  MyClass
+{
+
+    private $properties;
+
+    function __get($name)
+    {
+        print("Чтение значения свойства $name");
+        return $this->properties[$name];
+    }
+
+
+    function __set($name, $value)
+    {
+        print("Задание нового свойства $name = $value");
+        $this->properties[$name] = $value;
+    }
+
+
+}
+
+$obj = new MyClass;
+$obj->property = 1;
+echo $obj->property;
+
+*/
+
+
+
+// Метод __toString()
+/*
+class MyClass {
+
+    function __toString(){
+        return 'Вызван  метод __toString()';
+    }
+
+}
+$obj = new MyClass;
+echo $obj;
+*/
+
+
+// Уточнение типа класса
+
+/*
+interface Int1 {
+    function func1(Int1   $int1);
+}
+interface Int2 {
+    function func2(Int2 $int2);
+}
+class MyClass implements Int1, Int2 {
+    public function func1(Int1 $int1)   {
+        // Код метода
+    }
+    public function func2(Int2 $int2)   {
+        //  Код метода
+    }
+}
+*/
+
+
+
+
 
 ?>
 </pre>
