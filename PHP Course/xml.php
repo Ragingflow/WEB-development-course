@@ -257,6 +257,55 @@ $xmlContent = $sxml->asXML("xml/new_catalog.xml");
 */
 
 
+// XSL/T (Extensible Stylesheet Language /Transformations)
+
+
+
+// Пример XSL-документа
+
+/*
+<?xml version="1.0"   encoding="UTF-8"   ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="html" />
+  <xsl:template match="/">
+     ...
+     <xsl:apply-templates select="/catalog/book" />
+     ...
+  </xsl:template>
+  <xsl:template match="book[price  < 200]">
+     ...
+     <xsl:apply-templates   select="./*"   />
+     ...
+  </xsl:template>
+  <xsl:template   match="book/*">
+     ...
+     <xsl:value-of   select="."   />
+     ...
+  </xsl:template>
+</xsl:stylesheet>
+
+*/
+
+
+// Применение таблицы XSL к XML-документу на стороне сервера
+
+// Загрузка  исходного  XML-документа
+$xml  =  new  DOMDocument();
+$xml->load('xslt/catalog.xml');
+
+// Загрузка  таблицы  стилей  XSL
+$xsl  =  new  DOMDocument();
+$xsl->load('xslt/catalog.xsl');
+
+
+//Создание  XSLT-процессора  и  загрузка  в  него стилевой  таблицы
+$processor = new XSLTProcessor();
+$processor->importStylesheet($xsl);
+
+//Выполнение  трансформации  и  получение результатов
+$html = $processor->transformToXml($xml);
+
+echo $html;
 
 
 

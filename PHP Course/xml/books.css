@@ -1,0 +1,10 @@
+book {
+    display: block;
+    margin-bottom: 5px;
+    border: 1px solid green;
+}
+author {
+    display: block;
+    font-weight: bold;
+    color: blue;
+}
