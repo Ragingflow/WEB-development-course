@@ -12,8 +12,9 @@ header("Content-type: image/jpeg");
 //$img = imageCreate(500, 300);
 
 //  Создание  изображения  (17  млн.  цветов)
-$img = imagecreatetruecolor(500, 300);
+//$img = imagecreatetruecolor(500, 300);
 
+$img = imagecreatefromjpeg('img.jpg');
 
 
 
@@ -56,6 +57,46 @@ $points  =  array(0,0,100,200,300,200, 350, 250);
 
 imagepolygon($img, $points, 4, $red );
 imagefilledpolygon($img, $points, 4, $red );
+
+
+
+// Отрисовка  эллипса  (или  окружности)
+
+imageEllipse ($img,  200,  150,  300,  200,  $red);
+imagefilledEllipse ($img,  200,  150,  300,  200,  $red);
+
+
+//  Отрисовка  сектора  эллипса
+
+//imageArc($img,  200,  150,  300,  200,  0,  40,  $green);
+//imagefilledArc($img,  200,  150,  300,  200,  0,  40,  $green, IMG_ARC_PIE);
+
+/*
+Константы для imageFilledArc:
+IMG_ARC_PIE
+IMG_ARC_CHORD,
+IMG_ARC_NOFILL,
+IMG_ARC_EDGED*/
+
+imagefilledArc($img,  200,  150,  300,  200,  0,  40,  $green, IMG_ARC_NOFILL | IMG_ARC_EDGED);
+
+
+//  Отрисовка  строки  текста
+
+//imageString($img,  3,  150,  300,  "Hello!",  $blue);
+
+
+imageTtfText($img,  30,  10,  300,  150,  $blue, "arial.ttf", "Hello!");
+
+
+
+//  Создание  нового  изображения  на  базе существующего
+
+//$img  =  imageCreateFromJPEG("image.jpg");
+//$img  =  imageCreateFromGIF("image.gif");
+//$img  =  imageCreateFromPNG("image.png");
+
+
 
 
 
