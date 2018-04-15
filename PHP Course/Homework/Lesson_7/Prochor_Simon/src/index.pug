@@ -1,0 +1,58 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+        link(href='styles.css', rel='stylesheet')
+        title
+    body
+        .header
+            .container
+                .row.justify-content-center
+                    .col-10
+                        .row.justify-content-between
+                            .col-auto
+                                h2
+                                    | HOME WORK PHP&nbsp;
+                                    span.badge.badge-pill.badge-success 7
+
+        .content
+            .container
+                .content__form
+                    .row.justify-content-center
+                        .col-10
+                            form#ticketby
+                                .form-group.row
+                                    .col-sm-4.col-form-label DB Type
+                                    .col-sm-8
+                                            .form-check.form-check-inline
+                                                input#inlineRadio1.form-check-input(type='radio', checked, name='dbtype', value='txt')
+                                                label.form-check-label(for='inlineRadio1') Txt file
+                                            .form-check.form-check-inline
+                                                input#inlineRadio2.form-check-input(type='radio', name='dbtype', value='sql')
+                                                label.form-check-label(for='inlineRadio2') MySql
+                                            .form-check.form-check-inline
+                                                input#inlineRadio3.form-check-input(type='radio', name='dbtype', value='xml')
+                                                label.form-check-label(for='inlineRadio3') XML file
+                                .form-group
+                                    label(for='name1') First Name
+                                    input#name1.form-control(type='text', name="firstname", placeholder='First Name')
+                                .form-group
+                                    label(for='name2') Last name
+                                    input#name2.form-control(type='text', name="lastname", placeholder='Last name')
+                                .form-group
+                                    label(for='email') Email address
+                                    input#email.form-control(type='text', name="email", placeholder='Enter email')
+                                .form-group
+                                    label(for='type') Type Ticket
+                                    select#type.form-control(name="type", required)
+                                        option(selected='') free
+                                        option standart
+                                        option premium
+
+
+
+                                button.btn.btn-primary(type='submit') By Ticket
+
+
+
