@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+	<script src="index.js"></script>
+
+	<title>Registration</title>
+</head>
+<body>
+	<div class="container col-lg-6">
+
+	<form id="registration">
+		<div class="form-group">
+			<label for="inputName">Name</label>
+			<input type="text" class="form-control info" id="inputName" name="name" placeholder="Enter Name">
+		</div>
+
+		<div class="form-group">
+			<label for="inputSecondName">Second Name</label>
+			<input type="text" class="form-control info" id="inputSecondName" name="secondName"placeholder="Enter Second Name">
+		</div>
+
+		<div class="form-group">
+			<label for="inputEmail">Email address</label>
+			<input type="email" class="form-control info" id="inputEmail" name="email" placeholder="Enter email">
+		</div>
+
+		<label id="spam-error" class="error" for="spam"></label>
+
+		<div class="radio-inline">
+			<input type="radio" class="radio-inline" id="checkFree" value="free" name="spam">
+			<label class="radio-inline" for="checkFree">Free</label>
+		</div>
+
+
+		<div class="radio-inline">
+			<input type="radio" class="radio-inline" id="checkStandart" value="standart" name="spam">
+			<label class="radio-inline" for="checkStandart">Standart</label>
+		</div>
+
+
+		<div class="radio-inline">
+			<input type="radio" class="radio-inline" id="checkPremium" value="premium" name="spam">
+			<label class="radio-inline" for="checkPremium">Premium</label>
+		</div>
+
+
+		<button type="submit" class="btn btn-primary" id="submitForm">Submit</button>
+	</form>
+
+	<div id="information" >	</div>
+</div>
+		</div>
+	</div>
+</body>
+</html>
