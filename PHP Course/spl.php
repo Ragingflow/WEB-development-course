@@ -292,7 +292,7 @@ while($gi->valid()){
 //            Countable
 //
 
-
+/*
 $usersArr = [
     'Вася', 'Петя', 'Иван', 'Маша', 'Джон', 'Майк', 'Даша', 'Наташа', 'Света'
 ];
@@ -344,14 +344,235 @@ for($it = $usersObjCopy->getIterator(); $it->valid(); $it->next()){
     echo $it->key() . ': ' . $it->current() . "\n";
 }
 
+*/
+
+
+
+// Структуры данных
+
+
+
+// Хранилище SplObjectStorage
+
+/*SplObjectStorage implements ArrayAccess,
+       Serializable,
+       Traversable,
+       Iterator,
+       Countable*/
+/*
+$storage = new SplObjectStorage();
+
+$object1 = (object)['param'=> 'name'];
+$object2 = (object)['param'=> 'numbers'];
+
+$storage[$object1] = 'John';
+$storage[$object2] = [1,2,3];
+
+foreach ($storage as $i=>$key) {
+    echo "Item: $i: \n";
+    var_dump($key, $storage[$key]);
+    echo '\n';
+}
+*/
+
+
+// Стек
+
+//SplDoublyLinkedList implements Iterator, Countable, ArrayAccess
+
+//SplStack extends SplDoublyLinkedList
+
+/*
+$stack = new SplStack();
+
+
+$stack->push('John');
+$stack->push('Mike');
+echo $stack->pop();
+echo $stack->pop();
+$stack->push('John');
+$stack->push('Mike');
+echo $stack->top();
+echo $stack->top();
+echo $stack->bottom();
+*/
+
+
+// Очередь
+
+//SplDoublyLinkedList implements Iterator, Countable, ArrayAccess
+//
+//SplQueue extends SplDoublyLinkedList
+
+/*
+class Work {
+    public function __construct($title) {
+        $this->title = $title;
+    }
+    public function doIt(){
+        return $this->title;
+    }
+}
+
+$work1 = new Work('task1');
+$work2 = new Work('task2');
+$work3 = new Work('task3');
+
+$queue = new SplQueue();
+
+
+$queue->enqueue($work1);
+$queue->enqueue($work2);
+$queue->enqueue($work3);
+
+
+while ($queue->count() > 0) {
+    echo $queue->dequeue()->doIt();
+}*/
+
+
+
+// Очередь с приоритетом
+
+// SplPriorityQueue implements Iterator, Countable
+
+/*
+class Work {
+    public function __construct($title) {
+        $this->title = $title;
+    }
+    public function doIt(){
+        return $this->title;
+    }
+}
+
+$work1 = new Work('task1');
+$work2 = new Work('task2');
+$work3 = new Work('task3');
+
+$queue = new SplPriorityQueue();
+
+$queue->insert($work1, 1);
+$queue->insert($work2, 3);
+$queue->insert($work3, 2);
+
+foreach ($queue as $work) {
+    echo $work->doIt();
+}
+
+*/
+
+
+
+// Куча
+
+/*
+abstract SplHeap implements Iterator, Countable
+
+SplMinHeap extends SplHeap implements Iterator, Countable
+
+SplMaxHeap extends SplHeap implements Iterator, Countable
+
+*/
+/*
+$minHeap = new SplMinHeap();
+
+$minHeap -> insert(2);
+$minHeap -> insert(3);
+$minHeap -> insert(1);
+
+foreach ($minHeap as $value) {
+    echo $value .' '; // 1 2 3
+}
+*/
+
+
+/*
+$minHeap = new SplMaxHeap();
+
+$minHeap -> insert(2);
+$minHeap -> insert(3);
+$minHeap -> insert(1);
+
+foreach ($minHeap as $value) {
+    echo $value .' '; // 3 2 1
+}
+*/
+
+
+
+// Массив фиксированной длины
+
+// SplFixedArray implements Iterator, ArrayAccess, Countable
+
+/*
+$splArray = new SplFixedArray(5);
+
+$splArray[1] = 2;
+$splArray[4] = 'foo';
+//$splArray[5] = 'bar'; // // Ошибка!
+
+echo $splArray->getSize();
+
+// Увеличиваем псевдо-массив
+echo $splArray->setSize(10);
+$splArray[8] = 'bar';
+
+*/
+
+
+
+// Автозагрузка классов
+
+//spl_autoload_register — Регистрирует заданную функцию в качестве реализации метода __autoload()
+
+
+// bool spl_autoload_register ([ callable $autoload_function [, bool $throw = true [, bool $prepend = false ]]] )
+
+function loadClass ($class_name) {
+    require_once "classes/$class_name.class.php";
+}
+
+
+function loadInterface ($class_name) {
+    require_once "classes/$class_name.interface.php";
+}
+
+
+function loadSomething ($class_name) {
+    // ...
+}
+
+
+class Main{
+    public static function autoload($class_name) {
+        require_once "classes/$class_name.class.php";
+    }
+}
+
+
+spl_autoload_register('loadClass');
+spl_autoload_register('loadInterface');
+spl_autoload_register('loadSomething');
+
+// Список зарегистрированных функций
+var_dump(spl_autoload_functions());
+
+
+// Удаление функции из списка зарегистрированных
+spl_autoload_unregister('loadSomething');
+
+
+
+// Регистрация статического метода класса
+spl_autoload_register(['Main', 'autoload']);
 
 
 
 
 
-
-
-
+// Список зарегистрированных функций
+var_dump(spl_autoload_functions());
 
 
 

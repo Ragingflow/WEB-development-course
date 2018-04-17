@@ -125,10 +125,11 @@ class MySQL extends ValidateForm{
 
   $sxml = simplexml_load_file('registration.xml');
 
-  $sxml->Order->Name[] =$_POST["name"];
-  $sxml->Order->LastName[] = $_POST["lastName"];
-  $sxml->Order->Email[] = $_POST['email'];
-  $sxml->Order->TicketType[] = $_POST["tickets"];
+  $new_elemtn_index = count($sxml->Order);
+  $sxml->Order[$new_elemtn_index]->Name =$_POST["name"];
+  $sxml->Order[$new_elemtn_index]->LastName = $_POST["lastName"];
+  $sxml->Order[$new_elemtn_index]->Email = $_POST['email'];
+  $sxml->Order[$new_elemtn_index]->TicketType = $_POST["tickets"];
   $xmlContent = $sxml->asXML('registration.xml');
     
     };
@@ -188,8 +189,8 @@ class MySQL extends ValidateForm{
 //    }
 //  }
 
-$obj = new MySQL();
-$obj->mySQL();
+$obj = new FileXML();
+$obj->FileXML();
  
 // };
 

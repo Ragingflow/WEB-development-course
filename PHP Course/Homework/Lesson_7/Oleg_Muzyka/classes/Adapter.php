@@ -6,9 +6,7 @@ class Adapter
     public function saveData($chooseMethod)
     {
 
-        spl_autoload_register(function ($class) {
-            include $class . '.php';
-        });
+
 
 
         if (!empty($_POST)) {

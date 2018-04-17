@@ -21,7 +21,7 @@ define("DB", ["host" => "localhost",
 // to the function selectAddVisitors($way) 
 // By default, a text file is selected.";
 
-$addVisitorsWay = selectAddVisitors("txt");
+$addVisitorsWay = selectAddVisitors("xml");
 
 function selectAddVisitors($way) {
     switch ($way) {

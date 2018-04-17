@@ -5,9 +5,7 @@ class AddToFile
 
     public function file($name, $secondName, $email, $ticket)
     {
-        spl_autoload_register(function ($class) {
-            include $class . '.php';
-        });
+
 
         $error = new Response();
         $time = date("d_m_Y");

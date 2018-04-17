@@ -13,7 +13,7 @@ spl_autoload_register(function ($class) {
 
 
 $addData = new Adapter();
-$addData->saveData('dataBase');
+$addData->saveData('xml');
 
 
 
