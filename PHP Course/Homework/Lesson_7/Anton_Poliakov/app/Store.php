@@ -1,10 +1,10 @@
 <?php
 
-namespace Anton_Poliakov\App;
+//namespace Anton_Poliakov\App;
 
-use DOMDocument;
-
-use mysqli;
+//use DOMDocument;
+//
+//use mysqli;
 
 class Store
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Anton_Poliakov\App;
+//namespace Anton_Poliakov\App;
 
 class App
 {

@@ -1,14 +1,13 @@
 <?php
 
-namespace Anton_Poliakov\App;
 
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
 spl_autoload_register(function ($class_name) {
-    $path = explode('\\', $class_name);
-    include implode('/', array_slice($path, 1)) . '.php';
-    require_once __DIR__ . '/App/helpers.php';
+
+    include_once 'app/' . $class_name . '.php';
+    require_once __DIR__ . '/app/helpers.php';
 });
 
 $app = new App;
