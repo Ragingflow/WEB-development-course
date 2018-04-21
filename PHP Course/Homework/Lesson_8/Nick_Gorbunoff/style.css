@@ -1,0 +1,56 @@
+* {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	box-sizing: border-box;
+}
+#modal{
+	display: flex;
+	justify-content: center;
+}
+#modal_form {
+	width: 550px;
+	height: 600px;
+	border: 3px #000 solid;
+	border-radius: 50px;
+	display: flex;
+	padding: 10px 10px;
+	flex-direction: column;
+	text-align: center;
+}
+#form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#form p {
+	font-size: 1.2rem;
+}
+#radio-btn {
+	display: flex;
+	margin-bottom: 20px;
+}
+#send {
+	font-size: 1.2rem;
+	color: white;
+	width: 160px;
+	height: 50px;
+	background-color: #2FCF7F;
+	border-radius: 25px;
+	border: none;
+	cursor: pointer;
+}
+.user_data, #captchainput {
+	font-size: 1rem;
+	margin-bottom: 10px;
+	padding: 5px;
+	width: 250px;
+	border-radius: 5px;
+}
+.messages{
+	font-weight: bold;
+}
+
+span {
+	margin: 5px 0;
+    cursor: pointer;
+    text-decoration: underline;
+}
