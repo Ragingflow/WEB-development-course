@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Book-shop</title>
+    <style>
+        #main {
+          background-color:#fcfcfc;
+          padding: 15px;
+
+        }
+
+        #orders {
+          width:50%;
+          height:auto;
+          background-color: #f3f3f3;
+          top: 120px;
+          display:none;
+          position:absolute;
+          right:5px;
+          top:5px;
+          padding-left: 10px;
+        }
+
+        .books:not(:first-child) {
+          border-top:1px dashed black;          
+        }
+
+        img {
+          margin: 10px 0;
+        }
+
+        .hidden {
+          z-index:3;
+          position:fixed;
+          background-color:#fdf5e6;
+          width:100%;
+          height:auto;
+          top:40px;
+          left:0;
+          display:none;
+          padding:15px;
+        }
+    </style>
+  </head>
+  <body>
+    
+    <div id="main">
+      <form>
+        <label for="search">Форма заказов книг</label>
+        <input type="search" name="search" id="search" placeholder="Название или автор"/>
+        <button id="button" type="button">Отправить</button>
+      </form>
+
+      <div id="orders"></div>
+
+      <div id="results">
+        
+      </div>
+      <div class="hidden">
+        <div id="bookOrder">
+        </div>
+        <form id="userForm">
+            <input type="text" id="userName" name="userName" placeholder="Имя">
+            <input type="email" id="userEmail" name="userEmail" placeholder="Email">
+            <input type="tel" id="userPhone" name="userPhone" placeholder="Номер телефона">
+            <button type="button" id="buttonOrder" class="classButton">Отправить</button>
+        </form>
+      </div>
+    </div>
+
+    
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+    <script>
+      function bookSearch(){
+        var URL = "https://www.googleapis.com/books/v1/volumes"
+        var search = document.getElementById("search").value
+        document.getElementById("results").innerHTML = ""
+
+        console.log(search)
+
+          $.ajax({
+            url: URL + "?q=" + search,
+            dataType:"json",
+
+            success: function(data){
+              for(i = 0; i < data.items.length; i++) {
+               var dataItems = data.items[i].volumeInfo,
+                   imgLinks = dataItems.imageLinks.smallThumbnail,
+                   title = dataItems.title,
+                   authors = dataItems.authors,
+                   publishedDate = dataItems.publishedDate,
+                   description = dataItems.description,
+                   id = data.items[i].id;
+
+                results.innerHTML += "<div class='books'><img src='" + imgLinks + "'/>"
+                results.innerHTML += "<h2>" + title + "</h2>"
+                results.innerHTML += "<p>" + authors + "</p>"
+                results.innerHTML += "<p>" + publishedDate + "</p>"
+                results.innerHTML += "<button id='" + i + "' type='button''>" + "Заказать" + "</button><br></div>"
+              }
+
+
+                $("#results button").on('click', function() {
+                    $(".hidden").css("display", "block");
+
+                    var index = $(this).attr('id'),
+                        dataItems = data.items[index].volumeInfo;
+                    document.getElementById("bookOrder").innerHTML = ""
+
+
+                    bookOrder.innerHTML += "<img src='" + dataItems.imageLinks.smallThumbnail + "'/>"
+                    bookOrder.innerHTML += "<p>" + data.items[index].volumeInfo.description + "</p>"
+
+
+                    orders.innerHTML += "<h2>" + dataItems.title + "</h2>"
+                    orders.innerHTML += "<img src='" + dataItems.imageLinks.smallThumbnail + "'/>"
+
+                })
+
+            },
+
+            type: 'GET'
+          });
+
+      $('#userForm').validate({
+                        rules: {
+                            name: {
+                                required: true,
+                                minlength: 2
+                            },
+                            email: {
+                                required: true,
+                                email: true
+                            },
+                            tel: {
+                                required: true,
+                                pattern: '^\\+380\\d{3}\\d{2}\\d{2}\\d{2}$',
+                            }
+                        },
+                        messages: {
+                            name: {
+                                required: "Поле 'Имя' обязательно к заполнению",
+                                minlength: "Введите не менее 2-х символов в поле 'Имя'"
+                            },
+                            email: {
+                                required: "Поле 'Email' обязательно к заполнению",
+                                email: "Необходим формат адреса email"
+                            },
+                            tel: {
+                                required: "Поле 'Номер' обязательно к заполнению ",
+                                pattern: "Введите телефон в правильном формате"
+                            }
+
+                        }
+                      })
+
+      $('#buttonOrder').on("click", function(event) {
+         $("#orders").css("display", "inline-block");
+         $(".hidden").css("display", "none");
+        
+
+        var $name = $("input[name= 'userName']").val();
+        var $email = $("input[name='userEmail']").val();
+        var $phone = $("input[name='userPhone']").val();
+
+        var information = $(
+            '<p class="info">Имя:' +  $name + '</p>' +
+            '<p class="info">Email:' + $email  + '</p>' +
+            '<p class="info">Телефон:' +  $phone  + '</p>');
+
+        information.appendTo('#orders');
+        })
+
+
+     }
+
+
+
+      document.getElementById("button").addEventListener('click', bookSearch, false)
+
+    
+    </script>
+  </body>
+</html>

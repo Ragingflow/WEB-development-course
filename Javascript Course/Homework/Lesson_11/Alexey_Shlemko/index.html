@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Book order</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container" id="app">
+    <div class="row" style="padding-bottom:20px; margin-bottom:20px; border-bottom: 2px solid gray">
+      <div class="col-md-9">
+        <input class="form-control" v-model="searchRequest">
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-block btn-primary" @click="getRequest">Search</button>
+      </div>
+    </div>
+
+    <div class="row" v-if="ordersDone.length > 0">
+      <div class="col-md-3"  v-for="order in ordersDone">
+        <div class="card">
+          <img :src="order.imageLink">
+          <div><b>Name:</b> {{ order.name }}</div>
+          <div><b>Email:</b> {{ order.email }} </div>
+          <div><b>Phone:</b> {{ order.phone }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"  v-for="(book, index) in books">
+        <div class="card">
+          <img :src="book.volumeInfo.imageLinks.thumbnail" width="auto">
+          <div><b>Title:</b>  {{ book.volumeInfo.title }}</div>
+          <div><b>Authors:</b> <span v-for="author in book.volumeInfo.authors"> {{author}}<br> </span> </div>
+          <div><b>PublishedDate:</b> {{ formatDate(book.volumeInfo.publishedDate) }}</div>
+          <button class="btn btn-block btn-secondary btn-buy" data-toggle="modal" data-target=".bd-example-modal-sm" @click="setOrder(index)">BUY</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="myModal">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <h4>Order</h4>
+          <img :src="orderInfo.imageLink">
+          <div>{{ orderInfo.description }}</div>
+          <input class="form-control"  placeholder="Name" id="name" v-model="orderInfo.name">
+          <div v-if="!isNameValid" style="color:red">Name is not valid</div>
+          <input class="form-control"  placeholder="E-mail" id="email" v-model="orderInfo.email">
+          <div v-if="!isEmailValid" style="color:red">Email is not valid</div>
+          <input class="form-control"  placeholder="Phone (+380...)" id="phone" v-model="orderInfo.phone">
+          <div v-if="!isPhoneValid" style="color:red">Phone is not valid</div>
+          <button class="btn btn-block btn-primary" @click="makeOrder">BUY</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

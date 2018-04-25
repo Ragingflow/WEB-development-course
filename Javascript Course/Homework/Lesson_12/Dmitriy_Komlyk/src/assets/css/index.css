@@ -1,0 +1,52 @@
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2C3350;
+  margin-top: 60px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.modal-header{
+  border-bottom: white;
+}
+.container.header{
+  margin-bottom: 50px;
+}
+.card-book{
+  padding: 20px;
+  margin: 10px;
+  border: 2px solid grey;
+  border-radius: 10px;
+}
+
+.form-control{
+    margin: 0 10px;
+}
+
+
+input {
+  border: 1px solid silver;
+  border-radius: 4px;
+  background: white;
+  padding: 5px 10px;
+}
+
+.error {
+  border-color: red;
+  background: #FDD;
+}
+
+.error:focus {
+  outline-color: #F99;
+}
+
+.valid {
+  border-color: #5A5;
+  background: #EFE;
+}
+
+.valid:focus {
+  outline-color: #8E8;
+}

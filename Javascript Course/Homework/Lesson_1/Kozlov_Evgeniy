@@ -1,0 +1,8 @@
+function Century(year) {
+  if (year >= 1 && year <= new Date().getFullYear()) {
+    return Math.ceil(year/100)
+  } else {
+    return ('Год указан невернo')
+  } 
+}
+Century(prompt('ВВедите год'));

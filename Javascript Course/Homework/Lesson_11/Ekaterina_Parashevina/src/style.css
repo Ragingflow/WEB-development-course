@@ -1,0 +1,21 @@
+.book-block {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 5px;
+    display: table;
+    height:400px;
+}
+.book-block .img-container {
+    height: 200px;line-height: 200px
+}
+.book-block button {
+    position: absolute;
+    bottom: 5px;
+    left: 42%;
+}
+ul {
+    padding-left: 0;
+}
+.modal-dialog {
+    max-width: 900px !important;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue App</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        {{ text }}
+        <div v-bind:title="randNum" v-if="shown">
+            Hover over me for your random number!
+        </div>
+    </div>
+
+<script>
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            text: 'Hello World',
+            randNum: Math.floor(Math.random() * 50) + 1,
+            shown: false,
+        }
+    });
+
+
+</script>
+
+</body>
+</html>
+
+

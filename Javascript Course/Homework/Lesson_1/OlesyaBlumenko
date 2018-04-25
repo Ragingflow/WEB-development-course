@@ -1,0 +1,102 @@
+function century (n) {
+ 
+ var n = prompt("Enter the year");  
+  
+    if( n <= 2017 ) {
+       
+
+       if( n <= 100){
+
+     	alert("it's I century");
+     	
+ 
+     }else if(  n <= 200 ){
+
+       	alert("it's II century");
+       	
+
+       }else if(  n <= 301  ){
+
+       	alert("it's III century");
+       
+       }else if(n <= 400){
+
+       	alert("it's IV century");
+       
+       }else if(n <= 500){
+
+       	alert("it's V century");
+       
+       }else if(n <= 600){
+
+       	alert("it's VI century");
+       
+       }else if( n <= 700){
+
+       	alert("it's VII century");
+       
+       }else if(n <= 800){
+
+       	alert("it's VIII century");
+       
+       }else if( n <= 900){
+
+       	alert("it's IX century");
+       
+       }else if( n <= 1000){
+
+       	alert("it's X century");
+       
+       }else if( n <= 1100){
+
+       	alert("it's XI century");
+       
+       }else if( n <= 1200){
+
+       	alert("it's XII century");
+       
+       }else if( n <= 1300){
+
+       	alert("it's XIII century");
+       
+       }else if( n <= 1400){
+
+       	alert("it's XIV century");
+       
+       }else if( n <= 1500){
+
+       	alert("it's XV century");
+       
+       }else if(n <= 1600){
+
+       	alert("it's XVI century");
+       
+       }else if( n <= 1700){
+
+       	alert("it's XVII century");
+       
+       }else if( n <= 1800){
+
+       	alert("it's XVIII century");
+       
+       }else if( n <= 1900){
+
+       	alert("it's XIX century");
+       
+       }else if( n <= 2000){
+
+       	alert("it's XX century");
+       
+       }else if( n <= 2017){
+
+       	alert("it's XXI century");
+       
+       }
+
+    }else{
+    alert("Not correct. Please, try again");
+  };
+  
+  };
+
+century();

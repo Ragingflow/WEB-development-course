@@ -1,0 +1,53 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
+        link(href='styles.css', rel='stylesheet')
+        title
+    body
+        .header
+            .container
+                .row.justify-content-center
+                    .col-10
+                        .row.justify-content-between
+                            .col-auto
+                                h2
+                                    | HOME WORK&nbsp;
+                                    span.badge.badge-pill.badge-success 11
+
+                            .col-auto
+                                button#cartbtn.btn.btn-primary(type='button')
+                                    | Cart&nbsp;
+                                    span.badge.badge-light 0
+
+        .content
+            .container
+                .content__form
+                    .row.justify-content-center
+                        .col-10
+                            form#search
+                                .form-row.justify-content-center
+                                    .col-10
+                                        .form-group
+                                            input.form-control(type='text', name="q" placeholder='Book name...')
+                                    .col-2
+                                        button.btn.btn-block.btn-primary(type='submit') Search
+
+
+                .row.justify-content-center
+                    .col-10
+                        .progress(style="display: none")
+                            .progress-bar.progress-bar-striped.progress-bar-animated(role='progressbar', aria-valuenow='75', aria-valuemin='0', aria-valuemax='100', style='width: 100%')
+
+                        .card-columns#search-list
+                            .card
+                                img.card-img-top(src='/', alt='')
+                                .card-body
+                                    h5.card-title ...
+                                    footer.blockquote-footer
+                                        small.text-muted ...
+                                    p.card-text
+                                        small.text-muted ...
+                                    a.btn.btn-primary(href='#') Order
+

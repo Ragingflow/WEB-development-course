@@ -1,0 +1,19 @@
+div.alert-success, div.alert-danger{
+    margin-top: 10px;
+}
+#ticket_form{
+    margin-top: 10px;
+}
+.message{
+    display: none;
+}
+.container{
+    padding-top: 15px;
+}
+input.error {
+    border: 1px solid #ff0000;
+}
+label.error {
+    color: #ff0000;
+    font-weight: normal;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #banner {
+            border: 1px solid;
+           /* background: blue;*/
+        }
+    </style>
+
+    <script src="assets/jquery-3.2.1.min.js"></script>
+
+    <script>
+//        console.log('log')
+
+        //alert('Hello world !');
+        //document.write('Hello world !');
+//        var name = prompt('What is your name?', 'default value')
+//        document.write('Hello ' + name +' !');
+
+//        var authors = [
+//            'Ernest Hemingway',
+//            'Charlotte Bronte',
+//            'Dante Alighieri',
+//            'Emily Dickinson' ];
+//        document.write('<p>The first author is <strong>');
+//        document.write(authors[0] + '</strong>');
+
+//        console.log(document.getElementById('banner'));
+
+        $(document).ready(function() {
+            //console.log('document ready')
+            //var banner = $('#banner p.red, #banner a[title=super]').css({'color': 'red'});
+//            $('a:even').css({'color': 'red'});
+//            $('a:odd').css({'color': 'green'});
+//            $('a:first').css({'background': 'green'});
+//            $('a:last').css({'background': 'green'});
+//            $('a:eq(1)').css({'background': 'green'});
+//            $('a:gt(1)').css({'background': 'green'});
+//            $('a:lt(1)').css({'background': 'green'});
+//            $('a:not([title=super])').css({'background': 'green'});
+//            $('p:has(a)').css({'background': 'green'});
+//            $('p:contains(Banner text)').css({'background': 'green'});
+//            var p = $('p:hidden');
+              var p = $('p:visible');
+              console.log(p.text());
+//            console.log('jQuery selector', banner);
+
+
+        });
+
+$(window).on('unload', function() {
+    alert('unloaded');
+});
+
+
+$(function() {
+            // your programming goes here
+        }); //
+
+
+    </script>
+</head>
+<body>
+
+<div id="banner">
+    <p>Banner text</p>
+    <p style="display: none">Banner text hidden</p>
+    <p>Banner text</p>
+    <p class="red">Banner text <a>Banner text</a></p>
+    <p>Banner asdstext</p>
+    <p>Banner asdsatext</p>
+    <p>Banner text</p>
+    <p><img src="assets/img0.png" alt=""></p>
+    <a title="super">Banner text</a>
+    <a>Banner text</a>
+    <a>Banner text</a>
+</div>
+
+</body>
+
+<script>
+    console.log("getElementById", document.getElementById('banner'));
+</script>
+
+</html>

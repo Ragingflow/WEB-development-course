@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Book</title>
+  <style>
+    input {
+      font-size: 16px;font-weight: 300;width: 250px;border: solid 2px #000;margin-right: 20px;margin-bottom: 10px;display: block;
+    }
+    button {
+      font-size: 16px;font-weight: 500;text-transform: uppercase;width: 150px;border: solid 2px #000;background: #bdbdbd;margin-bottom: 10px;display: block;
+    }
+    .classBooks {
+      margin-top: 20px;
+    }
+    .classModal {
+      display: none;position: fixed;z-index: 1;padding-top: 100px;left: 0;top: 0;width: 100%;height: 100%;overflow: auto; /background-color: rgb(0,0,0);background-color: rgba(0,0,0,0.4);
+    }
+    .classModalContent {
+      background-color: #fefefe;margin: auto;padding: 20px;border: 1px solid #888;width: 80%;max-height: 500px;overflow: scroll;
+    }
+    .close {
+      color: #aaaaaa;float: right;font-size: 28px;font-weight: bold;
+    }
+    .close:hover, .close:focus {
+      color: #000;text-decoration: none;cursor: pointer;
+    }
+    .error {
+      color: red;
+      border-color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="searchFrom" class="classSearchForm">
+  <form>
+    <input type="search" id="search" placeholder="JavaScript">
+    <button type="button" id="buttonSend">Отправить</button>
+  </form>
+</div>
+<div id="books" class="classBooks"></div>
+<div id="modal" class="classModal">
+  <div class="classModalContent">
+    <span class="close" id="closeModal">&times;</span>
+    <div id="bookDescription"></div>
+    <div id="userInfo" class="classUserInfo">
+      <form id="userForm">
+        <input type="text" id="userName" name="userName" placeholder="Ваше имя">
+        <input type="email" id="userEmail" name="userEmail" placeholder="Ваш email">
+        <input type="tel" id="userPhone" name="userPhone" placeholder="Ваш номер телефона">
+        <button type="submit" id="buttonOrder" class="classButton">Отправить</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+<script>
+  $(document).ready(function(){
+     var URL = 'https://www.googleapis.com/books/v1/volumes',
+         $bookName,
+         $ajaxUrl,
+         $books = $('#books'),
+         $modal = $('#modal'),
+         $bookDescription = $('#bookDescription');
+    $('#buttonSend').click(function(){
+      $bookName = $('#search').val();
+      $ajaxUrl = URL + '?q=' + $bookName;
+      $books.empty();
+      $.get($ajaxUrl, function(data){
+        for (var i = 0; data.items.length; i++) {
+          var item = data.items[i];
+          $imageLink = item.volumeInfo.imageLinks;
+          littleImage = '<img src="' + $imageLink.smallThumbnail + '">';
+          $titleBook = item.volumeInfo.title;
+          $autors = item.volumeInfo.authors;
+          publishedDate = new Date(item.volumeInfo.publishedDate);
+          var formatter = new Intl.DateTimeFormat("ru");
+          publishedDate = formatter.format(publishedDate);
+          $id = item.id;
+          var buttonOrderBook = $('<button>', {type: 'button', text: 'Заказать', id: $id, class: 'classButton'});
+          $books.append(littleImage + '<br>', $titleBook + '<br>', $autors + '<br>', publishedDate + '<br>', buttonOrderBook);
+        }
+      });
+    });
+    $books.on('click', '.classButton', function() {
+      $modal.show();
+      $bookDescription.empty();
+      var $this = $(this),
+          $idBook = $this.attr('id'),
+          $ajaxUrlBook = URL + '/' + $idBook;
+      $.get($ajaxUrlBook, function(dataBook) {
+        bookImage = '<img src ="' + dataBook.volumeInfo.imageLinks.smallThumbnail + '">';
+        var bookDescription = '<p>' + dataBook.volumeInfo.description + '</p>';
+        $bookDescription.append(bookImage + '<br>', bookDescription);
+      });
+    });
+    $('#userForm').validate({
+      rules: {
+        userName: {
+          required: true,
+          minlength: 2
+        },
+        userEmail: {
+          required: true,
+          email: true
+        },
+        userPhone: {
+          required: true,
+          pattern: '\\+380\\d{2}\\d{7}'
+        }
+      },
+      messages: {
+        userName: {
+          required: 'Введите Ваше имя',
+          minlength: 'Имя должно содержать не менее двух символов'
+        },
+        userEmail: {
+          required: 'Введите Ваш email',
+          email: 'Email должен быть в соответсвующем формате example@mail.com'
+        },
+        userPhone: {
+          required: 'Введите номер Вашего телефона',
+          pattern: 'Номер телефона должен быть в соответсвующем формате +380991234567'
+        }
+      },
+      submitHandler: function() {
+            var $userName = $('#userName').val(),
+                $userEmail = $('#userEmail').val(),
+                $userPhone = $('#userPhone').val();
+            $books.empty().append(bookImage + '<br>', $userName + '<br>', $userEmail + '<br>', $userPhone);
+            $modal.hide();
+      }
+    });
+    $($modal).on('click', '#closeModal', function() {
+      $modal.hide();
+    });
+  });
+</script>
+</body>
+</html>

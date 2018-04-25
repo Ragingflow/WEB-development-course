@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>bookApp</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<div class="header">
+    <div class="search">
+      <form id="search">
+        <input type="search" id="books">
+        <button>Отправить</button>
+      </form>
+    </div>
+    <div id="order"></div>
+</div>
+
+<div id="result"></div>
+
+<div class="popup">
+    <div class ="popup_bg"></div>
+    <div class="form">
+        <div id="orderInformation"></div>
+        <form id="form">
+            <input class="formOrder" type="text" name="name" placeholder="Ваше Имя" /><br>
+            <input class="formOrder" type="email" name="email" placeholder="Ваш Email"/><br>
+            <input class="formOrder" type="tel" name="tel" placeholder="Ваш номер"/><br>
+            <input type="submit" value="Отправить"/>
+        </form>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.min.js"></script>
+<script src="bundle.js"></script>
+</body>
+</html>

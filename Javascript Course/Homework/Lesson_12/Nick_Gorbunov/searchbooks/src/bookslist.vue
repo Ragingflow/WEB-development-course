@@ -26,7 +26,11 @@
             return{
                 bookslist: {},
                 showModal: false,
-                initial_ids: []
+                initial_ids: [],
+
+                email: "",
+                name: "",
+                phone: "",
             }
         },
         components: {

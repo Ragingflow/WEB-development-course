@@ -19,5 +19,5 @@
 
 	$regVisitor = new Config();
 	$regVisitor->config_reg('xml'); 
-	
+
 ?>
