@@ -7,9 +7,7 @@
  */
 class DbManager {
 
-    public $mysql;
-    public $db_name;
-    public $visitor;
+    public $mysql, $db_name, $visitor;
 
     public function __construct($db, $visitor) {
         $this->mysql = new mysqli($db["host"], $db["user"], $db["password"]);

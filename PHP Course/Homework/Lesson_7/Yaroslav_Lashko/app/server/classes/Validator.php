@@ -48,7 +48,7 @@ class Validator {
     public function validate() {
         if ($this->checkEmpty() && $this->checkName() && $this->checkTicket()) {
             return $this->visitor;
-        }else{
+        } else {
             return false;
         }
     }

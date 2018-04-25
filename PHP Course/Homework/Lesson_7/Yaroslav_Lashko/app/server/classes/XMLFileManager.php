@@ -20,14 +20,14 @@ class XMLFileManager {
         $this->file = "./user_data/registration_" . $this->date->format("d_m_Y") . ".xml";
         return $this->file;
     }
-    
+
     protected function createXML() {
         $sxml = new SimpleXMLElement('<?xml version="1.0" encoding="utf-8"?>'
                 . '<conference></conference>');
         return $sxml;
     }
 
-    protected function createVisitor($sxml) {     
+    protected function createVisitor($sxml) {
         $visitor = $sxml->addChild("visitor");
         $visitor->addChild("firstname", $this->visitor["name"]);
         $visitor->addChild("lastname", $this->visitor["lastname"]);
