@@ -18,6 +18,6 @@
 	// text, db, xml
 
 	$regVisitor = new Config();
-	$regVisitor->config_reg('db'); 
+	$regVisitor->config_reg('xml'); 
 	
 ?>
