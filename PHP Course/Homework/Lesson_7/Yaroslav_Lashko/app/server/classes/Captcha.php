@@ -14,7 +14,6 @@ class Captcha {
     private static function setSession() {
         session_start();
         $_SESSION["captcha"] = self::$captcha_symbols;
-        session_destroy();
     }
 
     private static function randSymbols() {
