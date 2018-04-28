@@ -1,4 +1,4 @@
-## HOME WORK PHP 7
+## HOME WORK PHP 8
 
 # Getting Started
 To start using the project simply run:
