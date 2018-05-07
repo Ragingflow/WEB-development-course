@@ -35,7 +35,7 @@ $(document).ready(function () {
 				data: $('#form').serialize(),
 				success: function(data) {
 					$('.messages').html(data);
-					$('.user_data').val('');
+					// $('.user_data').val(''); // enable if you want to clear inputs after submit
 					$('#captcha').attr('src', 'configCaptcha.php?r=' + Math.random());
 					$('#captchainput').val('');
 				}
