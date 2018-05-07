@@ -1,6 +1,10 @@
-div.alert-success, div.alert-danger{
+div.alert-success, div.alert-danger, .captcha-cont, .captcha-cont>p{
     margin-top: 10px;
 }
+div.alert-info{
+    padding: 20px;
+    border-radius: 3%;
+};
 #ticket_form{
     margin-top: 10px;
 }

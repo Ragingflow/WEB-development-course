@@ -3,7 +3,7 @@ let path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, './client'),
+        path: path.resolve(__dirname, './app'),
         filename: 'bundle.js'
     },
     module: {
@@ -23,7 +23,7 @@ module.exports = {
     },
     devServer: {
         port: 3000,
-        contentBase: './client',
+        contentBase: './app',
         inline: true
     }
 };
