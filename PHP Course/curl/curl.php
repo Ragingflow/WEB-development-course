@@ -98,7 +98,7 @@ curl_close ($curl);]
 // CURLOPT_PUT:boolean
 // CURLOPT_INFILE:streamresource
 // CURLOPT_INFILESIZE:integer
-/*
+
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, HOST_NAME . "upload/put.txt");
 
@@ -112,11 +112,10 @@ curl_setopt($curl, CURLOPT_PUT, true);
 curl_setopt($curl, CURLOPT_INFILE, $fp);
 curl_setopt($curl, CURLOPT_INFILESIZE, strlen($str));
 
-
 $result = curl_exec($curl);
 fclose($fp);
 curl_close($curl);
-*/
+
 
 
 // CURLOPT_HEADERFUNCTION:string
@@ -165,14 +164,16 @@ curl_close ($curl);*/
 //CURLINFO_CONTENT_TYPE
 //CURLINFO_CONTENT_LENGTH_DOWNLOAD
 
+/*
 $curl = curl_init();
 curl_setopt($curl, CURLOPT_URL, HOST_NAME . "test.txt");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_exec ($curl);
 
-var_dump(curl_getinfo($curl/*, CURLINFO_CONTENT_TYPE*/));
+var_dump(curl_getinfo($curl, CURLINFO_CONTENT_TYPE));
 
 
 curl_close ($curl);
+*/
 ?>
 

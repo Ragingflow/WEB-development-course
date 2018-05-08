@@ -4,3 +4,4 @@ Thumbs.db
 node_modules/
 bundle.js
 .idea
+PHP Course/unit_tests/vendor

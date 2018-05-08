@@ -98,6 +98,77 @@ require_once "AnotherModule.php";
 */
 
 
+// Правила доступа
+
+// Unqualified name
+/*
+namespace MyModule;
+
+const E_ALL = 100;
+
+echo E_ALL; // Локальная константа
+echo \E_ALL; // Глобальная константа
+*/
+
+
+// Qualified name
+/*
+require_once "MyModule.php";
+
+
+echo MyModule\E_ALL; // Константа из MyModule
+echo \E_ALL; // Глобальная константа
+*/
+
+
+// Fully qualified name
+/*
+require_once "MyModule.php";
+
+echo  \MyModule\E_ALL; // Константа из MyModule
+echo \E_ALL; // Глобальная константа
+*/
+
+
+
+// Импорт и псевдонимы
+
+
+namespace Foo;
+
+// Здесь подключаются все необходимые файлы (include)
+
+use My\Full1\Classname;
+use My\Full2\Classname as Bar;
+use \ArrayObject; // импорт глобального класса
+use My\Full\NSname;
+
+use A\B\C;
+new C();
+C\foo();
+
+
+class Bar {  }
+
+
+
+$obj = new Bar(); // объект класса My\Full2\Classname а не текущего namespace
+
+$obj =  new namespace\Bar();
+
+NSname\subns\func();
+
+$obj = new ArrayObject(array(1)); // глобальный ArrayObject
+
+
+
+
+
+
+
+
+
+
 
 
 
